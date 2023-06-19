@@ -100,6 +100,8 @@ function Header() {
                                 width="9"
                                 height="9"
                                 alt="찜 아이콘"
+                                margin-right="5px"
+                                vertical-align="bottom"
                             />
                             0
                         </ZzimHeart>
@@ -125,7 +127,7 @@ function Header() {
                     </RecentContainer>
                 </SideHeaderContainer>
                 <SideHeaderContainer>
-                    <TopButton>Top</TopButton>
+                    <TopButton>TOP</TopButton>
                 </SideHeaderContainer>
             </SideHeader>
         </HeaderWrap>
@@ -203,8 +205,11 @@ let SerchA = styled.a`
     text-decoration: none;
     cursor: pointer;
     background-color: transparent;
+    font-family: none;
+    width: 16px;
+    height: 16px;
     img {
-        vertical-align: bottom;
+        vertical-align: center;
         border-style: none;
     }
 `;
@@ -313,6 +318,7 @@ let SellerContainer = styled.div`
 `;
 // 판메자센터 a태그
 let Seller = styled.a`
+    font-family: none;
     font-size: 14px;
     display: flex;
     -webkit-box-align: baseline;
@@ -349,15 +355,17 @@ let SideHeaderContainer = styled.div`
     }
     padding: 10px;
     width: 100%;
-    border: 1px solid rgb(204, 204, 204);
+    border: 1.3px solid rgb(204, 204, 204);
     background: rgb(255, 255, 255);
     margin-bottom: 6px;
     box-sizing: border-box;
 `;
 // 찜한 상품, 최근 본 상품 글씨 div
 let SideHeaderText = styled.div`
+    height: 12px;
+    font-family: none;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 1000;
     color: rgb(102, 102, 102);
     text-align: center;
     margin-bottom: 8px;
@@ -382,12 +390,9 @@ display: flex;
     cursor: pointer;
     background-color: transparent;
     box-sizing: border-box;
-    img{
-        margin-right: 5px
-        vertical-align: bottom;
+
         border-style: none;
     }
-
 `;
 // 최근 본 상품 줄 컨테이너
 let LineContainer = styled.div`
@@ -434,6 +439,7 @@ let RecentContainer = styled.div`
 `;
 // TOP 버튼
 let TopButton = styled.button`
+    font-family: none;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
