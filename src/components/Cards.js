@@ -65,7 +65,7 @@ const ItemName = styled.div`
   padding-top: -10px;
   position: relative;
   font-size: 14px;
-  padding-bottom: 20px;
+  padding-bottom: 18px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
