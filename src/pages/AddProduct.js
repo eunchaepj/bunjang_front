@@ -11,6 +11,7 @@ function AddProduct(){
                 <BasicInfo>
                     <h2>기본정보</h2><span>*필수항목</span>
                 </BasicInfo>
+                <ProductInfo>
                 <ProductImage>
                     <ImageLeft>
                         상품이미지<span className="star">*</span><span className="num" style={{fontSize:"15px"}}>(0/12)</span>
@@ -49,6 +50,7 @@ function AddProduct(){
                         </ImageText>
                     </ImageRight>
                 </ProductImage>
+                </ProductInfo>
             </AddContainer>
         </Container>
         </>
@@ -66,8 +68,8 @@ const AddContainer = styled.div`
 const BasicInfo = styled.div`
     display: flex;
     align-items: center;
-    height-bottom: 1px solid rgb(33,33,33);
     height: 100px;
+    border-bottom: 2px solid rgb(30,29,41);
     span{
         color:red;
         margin-left:20px;
@@ -78,13 +80,15 @@ const BasicInfo = styled.div`
     }
 `;
 const ProductInfo = styled.ul`
-    
+    padding-top: 0.5rem;
+    margin: 0px;
+    padding-inline-start: 0px;
 `;
 const ProductImage = styled.li`
+    width: 100%;
     display: flex;
-    height: 411px;
-    padding: 32px 0px 0px;
-    border-bottom: 1px solid #DCDBE4;
+    padding: 2rem 0px;
+    border-bottom: 1px solid rgb(220, 219, 228);
 `;
 const ImageLeft = styled.div`
     width: 10.5rem;
