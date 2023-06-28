@@ -77,9 +77,13 @@ function Banner() {
 // 움직이는 배너 감싸고 있는 div
 const BannerBox = styled.div`
     position: relative;
-    max-width: 1024px;
+    width: 1024px;
     margin: 0px auto;
     background: white;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
     *,
     ::before,
     ::after {
