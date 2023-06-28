@@ -11,8 +11,8 @@ function AddProduct(){
                 <BasicInfo>
                     <h2>기본정보</h2><span>*필수항목</span>
                 </BasicInfo>
-                <ProductInfo>
-                <ProductImage>
+                <ProductInfo> 
+                <ProductSection>
                     <ImageLeft>
                         상품이미지<span className="star">*</span><span className="num" style={{fontSize:"15px"}}>(0/12)</span>
                     </ImageLeft>
@@ -49,7 +49,160 @@ function AddProduct(){
                             최대 지원 사이즈인 640 X 640으로 리사이즈 해서 올려주세요.(개당 이미지 최대 10M)
                         </ImageText>
                     </ImageRight>
-                </ProductImage>
+                </ProductSection>
+                <ProductSection>
+                    <TitleLeft>
+                        제목
+                        <span>*</span>
+                    </TitleLeft>
+                    <TitleRight>
+                        <Inputbox>
+                            <input type="text" placeholder="상품 제목을 입력해주세요."/>
+                            <a href="https://help.bunjang.co.kr/faq/2/220">거래금지 품목</a>
+                        </Inputbox>
+                        <InputTextSize>
+                            0/40
+                        </InputTextSize>
+                    </TitleRight>
+                </ProductSection>
+                <ProductSection>
+                    <CategoryLeft>
+                        카테고리
+                        <span>*</span>
+                    </CategoryLeft>
+                    <CategoryRight>
+                        <CategoryBox>
+                            <CategoryList>
+                                <Categories>
+                                    <Category>
+                                        <CategoryButton>여성의류</CategoryButton>
+                                    </Category>
+                                    <Category>
+                                        <CategoryButton>남성의류</CategoryButton>
+                                    </Category>
+                                    <Category>   
+                                        <CategoryButton>신발</CategoryButton>
+                                    </Category> 
+                                    <Category>   
+                                        <CategoryButton>가방/지갑</CategoryButton>
+                                    </Category> 
+                                    <Category>   
+                                        <CategoryButton>시계</CategoryButton>
+                                    </Category> 
+                                    <Category>   
+                                        <CategoryButton>쥬얼리</CategoryButton>
+                                    </Category> 
+                                    <Category>    
+                                        <CategoryButton>패션 액세서리</CategoryButton>
+                                    </Category> 
+                                    <Category>    
+                                        <CategoryButton>디지털</CategoryButton>
+                                    </Category> 
+                                    <Category>    
+                                        <CategoryButton>가전제품</CategoryButton>
+                                    </Category> 
+                                    <Category>    
+                                        <CategoryButton>스포츠/레저</CategoryButton>
+                                    </Category> 
+                                    <Category>    
+                                        <CategoryButton>차량/오토바이</CategoryButton>
+                                    </Category> 
+                                    <Category>
+                                        <CategoryButton>스타굿즈</CategoryButton>
+                                    </Category>
+                                    <Category>
+                                        <CategoryButton>키덜트</CategoryButton>
+                                    </Category>
+                                    <Category>   
+                                        <CategoryButton>예술/희귀/수집품</CategoryButton>
+                                    </Category> 
+                                    <Category>   
+                                        <CategoryButton>음반/악기</CategoryButton>
+                                    </Category> 
+                                    <Category>   
+                                        <CategoryButton>도서/티켓/문구</CategoryButton>
+                                    </Category> 
+                                    <Category>   
+                                        <CategoryButton>뷰티/미용</CategoryButton>
+                                    </Category> 
+                                    <Category>    
+                                        <CategoryButton>가구/인테리어</CategoryButton>
+                                    </Category> 
+                                    <Category>    
+                                        <CategoryButton>생활/주방용품</CategoryButton>
+                                    </Category> 
+                                    <Category>    
+                                        <CategoryButton>공구/산업용품</CategoryButton>
+                                    </Category> 
+                                    <Category>    
+                                        <CategoryButton>식품</CategoryButton>
+                                    </Category> 
+                                    <Category>    
+                                        <CategoryButton>유아동/출산</CategoryButton>
+                                    </Category> 
+                                    <Category>   
+                                        <CategoryButton>반려동물용품</CategoryButton>
+                                    </Category> 
+                                    <Category>   
+                                        <CategoryButton>기타</CategoryButton>
+                                    </Category> 
+                                    <Category>    
+                                        <CategoryButton>지역 서비스</CategoryButton>
+                                    </Category> 
+                                    <Category>    
+                                        <CategoryButton>원룸/함께살아요</CategoryButton>
+                                    </Category> 
+                                    <Category>    
+                                        <CategoryButton>번개나눔</CategoryButton>
+                                    </Category> 
+                                    <Category>    
+                                        <CategoryButton>구인구직</CategoryButton>
+                                    </Category> 
+                                    <Category>    
+                                        <CategoryButton>재능</CategoryButton>
+                                    </Category> 
+                                    <Category>    
+                                        <CategoryButton>커뮤니티</CategoryButton>
+                                    </Category> 
+
+                                </Categories>
+                            </CategoryList>
+                            <CategoryList>중분류 선택</CategoryList>
+                            <CategoryList>소분류 선택</CategoryList>
+                        </CategoryBox>
+                        <SelectCategory>
+                            <SelectCategoryText>
+                                선택한 카테고리 : 
+                                <b></b>
+                            </SelectCategoryText>
+                        </SelectCategory>
+                    </CategoryRight>
+                </ProductSection>
+                <ProductSection>
+                        <LocationLeft>
+                            거래지역
+                            <span>*</span>
+                        </LocationLeft>
+                        <LocationRight>
+                            <div>
+                                <SelectLocation>
+                                    내 위치
+                                </SelectLocation>
+                                <SelectLocation>
+                                    최근 지역
+                                </SelectLocation>
+                                <SelectLocation>
+                                    주소 검색
+                                </SelectLocation>
+                                <SelectLocation>
+                                    지역설정안함
+                                </SelectLocation>
+                            </div>
+                            <SellingLocationText>
+                            
+                            </SellingLocationText>
+                        </LocationRight>
+                </ProductSection>
                 </ProductInfo>
             </AddContainer>
         </Container>
@@ -84,7 +237,7 @@ const ProductInfo = styled.ul`
     margin: 0px;
     padding-inline-start: 0px;
 `;
-const ProductImage = styled.li`
+const ProductSection = styled.li`
     width: 100%;
     display: flex;
     padding: 2rem 0px;
@@ -160,6 +313,137 @@ const Ul = styled.ul`
     padding: 0px;
     margin: 0px;
 `;
+const TitleLeft = styled.div`
+    width: 10.5rem;
+    font-size: 18px;
+    padding-top: 14px;
+    span{
+        color:red;
+    }
+`;
+const TitleRight = styled.div`
+    flex: 1 1 0%;
+    position: relative;
+    display: flex;
+    width: 100%
+    -webkit-box-align: center;
+    align-items: center;
+`;
+const Inputbox = styled.div`
+    flex: 1 1 0%;
+    position: relative;
+    display: flex;
+    -webket-box-align: center;
+    align-items: center;
+    input {
+        height: 3rem;
+        padding: 0px 1rem;
+        border: 1px solid rgb(195,194,204);
+        width: 100%;
+    }
+    a {
+        position: absolute;
+        right: 1rem;
+        font-size: 1rem;
+        color: rgb(155, 153, 169);
+        text-decoration: underline;
+    }
+`;
+const InputTextSize = styled.div`
+    margin-left: 1.5rem;
+    font-size: 1rem;
+    text-align: right;    
+`;
+const CategoryLeft = styled.div`
+    width: 10.5rem;
+    font-size: 18px;
+    padding-top: 8px;
+    span{
+        color:red;
+    }
+`;
+const CategoryRight = styled.div`
+    flex: 1 1 0%;
+    position: relative;
+`;
+const CategoryBox = styled.div`
+    display: flex;
+    width: 100%;
+    height: 19rem;
+    overflow: hidden;
+    border: 1px solid rgb(220,219,228);
+`;
+const CategoryList = styled.div`
+    width: 284px;
+    height: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    overflow-y: auto;
+    color: rgb(195, 194, 204);
+    :nth-child(2), :nth-child(3) {
+        border-left: 1px solid rgb(220,219,228);
+    }
+`;
+const Categories = styled.ul`
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem 0px;
+`;
+const Category = styled.li`
+    display: flex;
+    width: 100%;
+    height: 40px;
+    -webkit-box-align: center;
+    align-items: center;
+    list-style: none;
 
+`;
+const CategoryButton = styled.button`
+    width: 100%;
+    height: 100%;
+    padding: 0px 1.5rem;
+    background-color: rgb(255,255,255);
+`;
+const SelectCategory = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+`;
+const SelectCategoryText = styled.h3`
+    font-size: 16px;
+    color: rgb(255,80,88);
+`;
+
+const LocationLeft = styled.div`
+    width: 10.5rem;
+    font-size: 18px;
+    padding-top: 14px;
+    span{
+        color:red;
+    }
+`;
+const LocationRight = styled.div`
+    flex: 1 1 0%;
+    position: relative;
+`;
+const SelectLocation = styled.button`
+    height: 3rem;
+    width: 6.5rem;
+    text-align: center;
+    border: 1px solid rgb(195,194,204);
+    margin-right: 1rem;
+    border-radius: 2px;
+`;
+const SellingLocationText = styled.input`
+    width: 100%;
+    margin-top: 1rem;
+    placeholder="선호 거래 지역을 검색해주세요."
+    value="지역설정안함"
+
+`;
 
 export default AddProduct;
