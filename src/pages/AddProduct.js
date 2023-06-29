@@ -199,9 +199,22 @@ function AddProduct(){
                                 </SelectLocation>
                             </div>
                             <SellingLocationText>
-                            
                             </SellingLocationText>
                         </LocationRight>
+                </ProductSection>
+                <ProductSection>
+                    <ConditionLeft>
+                        상태
+                        <span>*</span>
+                    </ConditionLeft>
+                    <ConditionRight>
+                        <SelectCondition>
+                            <UsedGoods>
+                                <input id="중고상품" type="radio" value={0}></input>
+                                중고상품
+                            </UsedGoods>
+                        </SelectCondition>
+                    </ConditionRight>
                 </ProductSection>
                 </ProductInfo>
             </AddContainer>
@@ -437,13 +450,59 @@ const SelectLocation = styled.button`
     border: 1px solid rgb(195,194,204);
     margin-right: 1rem;
     border-radius: 2px;
+    background-color: rgb(255,255,255);
 `;
 const SellingLocationText = styled.input`
     width: 100%;
     margin-top: 1rem;
-    placeholder="선호 거래 지역을 검색해주세요."
-    value="지역설정안함"
-
+    height: 3rem;
+    padding: 0px 1rem;
+    border: 1px solid rgb(195, 194, 204);
+    background: rgb(244, 244, 250);
 `;
-
+const ConditionLeft = styled.div`
+    width: 10.5rem;
+    font-size: 18px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    span {
+        color: red;
+    }
+`;
+const ConditionRight = styled.div`
+    flex: 1 1 0%;
+    position: relative;
+`;
+const SelectCondition = styled.div`
+     display: flex;
+`;
+const UsedGoods = styled.label`
+    ::before {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDov…gMSAwIDAtMTAgNSA1IDAgMCAwIDAgMTB6Ii8+Cjwvc3ZnPgo=);
+        content: "";
+        background-position: center center;
+        background-repeat: no-repeat;
+        width: 2rem;
+        height: 2rem;
+        padding: 0.5rem;
+        
+    }
+    for="중고상품";
+    display: flex;
+    font-size: 1rem;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    margin-right: 2rem;
+`;
+const NewGoods = styled.label`
+    for="새상품";
+    display: flex;
+    font-size: 1rem;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    margin-right: 2rem;
+`;
 export default AddProduct;
