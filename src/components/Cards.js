@@ -5,7 +5,7 @@ import styled from 'styled-components';
 function Cards() {
     let navigate = useNavigate();
     let [product] = useState({
-        img: 'https://image.dongascience.com/Photo/2020/03/5bddba7b6574b95d37b6079c199d7101.jpg',
+        img: 'https://mblogthumb-phinf.pstatic.net/20130303_124/ovcharka_no1_1362279507296igEt3_JPEG/1.jpg?type=w2',
         itemName: '제인패커 유로피안 라일락 75ml 향수',
         price: 101 + ',' + 600,
         time: '시간',
