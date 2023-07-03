@@ -16,7 +16,7 @@ function AddProduct(){
                     <ImageLeft>
                         상품이미지<span className="star">*</span><span className="num" style={{fontSize:"15px"}}>(0/12)</span>
                     </ImageLeft>
-                    <ImageRight>
+                    <RightBox>
                             <Ul>
                                 <Imageupload>
                                     {/* <img style={{width:"25px", height:"25px"}} src={"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxwYXRoIGZpbGw9IiNEQ0RCRTQiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTI4LjQ3MSAzMkgzLjUzYy0uOTcxIDAtMS44OTQtLjQyMi0yLjUyOS0xLjE1N2wtLjAyNi0uMDNBNCA0IDAgMCAxIDAgMjguMTk4VjguNjA3QTQgNCAwIDAgMSAuOTc0IDUuOTlMMSA1Ljk2YTMuMzQzIDMuMzQzIDAgMCAxIDIuNTI5LTEuMTU2aDIuNTM0YTIgMiAwIDAgMCAxLjUzNy0uNzJMMTAuNC43MkEyIDIgMCAwIDEgMTEuOTM3IDBoOC4xMjZBMiAyIDAgMCAxIDIxLjYuNzJsMi44IDMuMzYzYTIgMiAwIDAgMCAxLjUzNy43MmgyLjUzNGMuOTcxIDAgMS44OTQuNDIzIDIuNTI5IDEuMTU3bC4wMjYuMDNBNCA0IDAgMCAxIDMyIDguNjA2djE5LjU5MWE0IDQgMCAwIDEtLjk3NCAyLjYxN2wtLjAyNi4wM0EzLjM0MyAzLjM0MyAwIDAgMSAyOC40NzEgMzJ6TTE2IDkuNmE4IDggMCAxIDEgMCAxNiA4IDggMCAwIDEgMC0xNnptMCAxMi44YzIuNjQ3IDAgNC44LTIuMTUzIDQuOC00LjhzLTIuMTUzLTQuOC00LjgtNC44YTQuODA1IDQuODA1IDAgMCAwLTQuOCA0LjhjMCAyLjY0NyAyLjE1MyA0LjggNC44IDQuOHoiLz4KPC9zdmc+Cg=="}/>
@@ -48,14 +48,14 @@ function AddProduct(){
                             <br/>
                             최대 지원 사이즈인 640 X 640으로 리사이즈 해서 올려주세요.(개당 이미지 최대 10M)
                         </ImageText>
-                    </ImageRight>
+                    </RightBox>
                 </ProductSection>
                 <ProductSection>
-                    <TitleLeft>
+                    <LeftBox>
                         제목
                         <span>*</span>
-                    </TitleLeft>
-                    <TitleRight>
+                    </LeftBox>
+                    <RightBox>
                         <Inputbox>
                             <input type="text" placeholder="상품 제목을 입력해주세요."/>
                             <a href="https://help.bunjang.co.kr/faq/2/220">거래금지 품목</a>
@@ -63,14 +63,14 @@ function AddProduct(){
                         <InputTextSize>
                             0/40
                         </InputTextSize>
-                    </TitleRight>
+                    </RightBox>
                 </ProductSection>
                 <ProductSection>
                     <CategoryLeft>
                         카테고리
                         <span>*</span>
                     </CategoryLeft>
-                    <CategoryRight>
+                    <RightBox>
                         <CategoryBox>
                             <CategoryList>
                                 <Categories>
@@ -164,7 +164,6 @@ function AddProduct(){
                                     <Category>    
                                         <CategoryButton>커뮤니티</CategoryButton>
                                     </Category> 
-
                                 </Categories>
                             </CategoryList>
                             <CategoryList>중분류 선택</CategoryList>
@@ -176,14 +175,14 @@ function AddProduct(){
                                 <b></b>
                             </SelectCategoryText>
                         </SelectCategory>
-                    </CategoryRight>
+                    </RightBox>
                 </ProductSection>
                 <ProductSection>
-                        <LocationLeft>
+                        <LeftBox>
                             거래지역
                             <span>*</span>
-                        </LocationLeft>
-                        <LocationRight>
+                        </LeftBox>
+                        <RightBox>
                             <div>
                                 <SelectLocation>
                                     내 위치
@@ -200,21 +199,122 @@ function AddProduct(){
                             </div>
                             <SellingLocationText>
                             </SellingLocationText>
-                        </LocationRight>
+                        </RightBox>
                 </ProductSection>
                 <ProductSection>
-                    <ConditionLeft>
+                    <InputradioLeft>
                         상태
                         <span>*</span>
-                    </ConditionLeft>
-                    <ConditionRight>
-                        <SelectCondition>
-                            <UsedGoods>
-                                <input id="중고상품" type="radio" value={0}></input>
+                    </InputradioLeft>
+                    <RightBox>
+                        <SelectRadio>
+                            {/* 빨간색 버튼 이미지 안 함 (선택에 따라 className이 바뀜 ????) */}
+                            <Checked>
+                                <input id="중고상품" type="radio" value={0}/>
                                 중고상품
-                            </UsedGoods>
-                        </SelectCondition>
-                    </ConditionRight>
+                            </Checked>
+                            <Unchecked>
+                                <input id="새상품" type="radio" value={0}/>
+                                새상품
+                            </Unchecked>
+                        </SelectRadio>
+                    </RightBox>
+                </ProductSection>
+                <ProductSection>
+                    <InputradioLeft>
+                        교환
+                        <span>*</span>
+                    </InputradioLeft>
+                    <RightBox>
+                        <SelectRadio>
+                            <Checked>
+                                <input id="교환불가" type="radio" value={0}/>
+                                교환불가
+                            </Checked>
+                            <Unchecked>
+                                <input id="교환가능" type="radio" value={0}/>
+                                교환가능
+                            </Unchecked>
+                        </SelectRadio>
+                    </RightBox>
+                </ProductSection>
+                <ProductSection>
+                    <LeftBox>
+                        가격
+                        <span>*</span>
+                    </LeftBox>
+                    <RightBox>
+                        <InputPrice type="text" placeholder="숫자만 입력해주세요.">
+                        </InputPrice>
+                        원
+                        <DeliveryBox>
+                            <DeliveryInnerBox>
+                                <DeliveryLabel>
+                                    <input type="checkbox"/>
+                                    배송비 포함
+                                </DeliveryLabel>
+                            </DeliveryInnerBox>
+                        </DeliveryBox>
+                    </RightBox>
+                </ProductSection>
+                <ProductSection>
+                    <Explanationleft>
+                        설명
+                        <span>*</span>
+                    </Explanationleft>
+                    <RightBox>
+                        <ExplanationRight rows={6} value={""}></ExplanationRight>
+                        <NeedExplanationBox>
+                            여러 장의 상품 사진과 구입 연도, 브랜드, 사용감, 하자 유무 등 구매자에게 필요한 정보를 꼭 포함해 주세요. (10자 이상)
+                            <br/>
+                            <span>
+                                안전하고 건전한 거래 환경을 위해 과학기술정보통신부, 한국인터넷진흥원과 번개장터(주)가 함께 합니다.
+                            </span>
+                        </NeedExplanationBox>
+                        <KakaoBox>
+                            <span>
+                                혹시 
+                                <a href="https://help.bunjang.co.kr/notice/607" target="_blank"> 카카오톡 ID</a>
+                                를 적으셨나요?
+                            </span>
+                            <ExplanationSize>
+                                0/2000
+                            </ExplanationSize>
+                        </KakaoBox>
+                    </RightBox>
+                </ProductSection>
+                <ProductSection>
+                    <Explanationleft>연관태그</Explanationleft>
+                    <RightBox>
+                        <TagBox>
+                            <TagInnerBox>
+                                <InputTag>
+                                    <input type="text" placeholder="연관태그를 입력해주세요. (최대 5개)"/>
+                                </InputTag>
+                            </TagInnerBox>
+                        </TagBox>
+                        <TagCondition>
+                            <li>
+                                <p>태그는 띄어쓰기로 구분되며 최대 9자까지 입력할 수 있습니다.</p>
+                            </li>
+                            <li>
+                                <p>태그는 검색의 부가정보로 사용 되지만, 검색 결과 노출을 보장하지는 않습니다.</p>
+                            </li>
+                            <li>
+                                <p>검색 광고는 태그정보를 기준으로 노출됩니다.</p>
+                            </li>
+                            <li>
+                                <p>상품과 직접 관련이 없는 다른 상품명, 브랜드, 스팸성 키워드 등을 입력하면 노출이 중단되거나 상품이 삭제될 수 있습니다.</p>
+                            </li>
+                        </TagCondition>
+                    </RightBox>
+                </ProductSection>
+                <ProductSection>
+                    <Amount>수량</Amount>
+                    <RightBox>
+                        <InputAmount type="text"/>
+                        개
+                    </RightBox>
                 </ProductSection>
                 </ProductInfo>
             </AddContainer>
@@ -268,10 +368,17 @@ const ImageLeft = styled.div`
         font-size: 12px;
     }
 `;
-const ImageRight = styled.div`
+const LeftBox = styled.div`
+    width: 10.5rem;
+    font-size: 18px;
+    padding-top: 14px;
+    span{
+        color:red;
+    }
+`;
+const RightBox = styled.div`
     flex: 1 1 0%;
     position: relative;
-    box-sizing: border-box;
 `;
 const Imageupload = styled.li`
     ::before {
@@ -326,22 +433,6 @@ const Ul = styled.ul`
     padding: 0px;
     margin: 0px;
 `;
-const TitleLeft = styled.div`
-    width: 10.5rem;
-    font-size: 18px;
-    padding-top: 14px;
-    span{
-        color:red;
-    }
-`;
-const TitleRight = styled.div`
-    flex: 1 1 0%;
-    position: relative;
-    display: flex;
-    width: 100%
-    -webkit-box-align: center;
-    align-items: center;
-`;
 const Inputbox = styled.div`
     flex: 1 1 0%;
     position: relative;
@@ -374,10 +465,6 @@ const CategoryLeft = styled.div`
     span{
         color:red;
     }
-`;
-const CategoryRight = styled.div`
-    flex: 1 1 0%;
-    position: relative;
 `;
 const CategoryBox = styled.div`
     display: flex;
@@ -430,19 +517,6 @@ const SelectCategoryText = styled.h3`
     font-size: 16px;
     color: rgb(255,80,88);
 `;
-
-const LocationLeft = styled.div`
-    width: 10.5rem;
-    font-size: 18px;
-    padding-top: 14px;
-    span{
-        color:red;
-    }
-`;
-const LocationRight = styled.div`
-    flex: 1 1 0%;
-    position: relative;
-`;
 const SelectLocation = styled.button`
     height: 3rem;
     width: 6.5rem;
@@ -460,7 +534,7 @@ const SellingLocationText = styled.input`
     border: 1px solid rgb(195, 194, 204);
     background: rgb(244, 244, 250);
 `;
-const ConditionLeft = styled.div`
+const InputradioLeft = styled.div`
     width: 10.5rem;
     font-size: 18px;
     display: flex;
@@ -470,23 +544,11 @@ const ConditionLeft = styled.div`
         color: red;
     }
 `;
-const ConditionRight = styled.div`
-    flex: 1 1 0%;
-    position: relative;
-`;
-const SelectCondition = styled.div`
+const SelectRadio = styled.div`
      display: flex;
 `;
-const UsedGoods = styled.label`
+const Checked = styled.label`
     ::before {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDov…gMSAwIDAtMTAgNSA1IDAgMCAwIDAgMTB6Ii8+Cjwvc3ZnPgo=);
-        content: "";
-        background-position: center center;
-        background-repeat: no-repeat;
-        width: 2rem;
-        height: 2rem;
-        padding: 0.5rem;
-        
     }
     for="중고상품";
     display: flex;
@@ -496,7 +558,7 @@ const UsedGoods = styled.label`
     position: relative;
     margin-right: 2rem;
 `;
-const NewGoods = styled.label`
+const Unchecked = styled.label`
     for="새상품";
     display: flex;
     font-size: 1rem;
@@ -504,5 +566,167 @@ const NewGoods = styled.label`
     align-items: center;
     position: relative;
     margin-right: 2rem;
+`;
+const InputPrice = styled.input`
+    height: 3rem;
+    padding: 0px 1rem;
+    border: 1px solid rgb(195, 194, 204);
+    appearance: none;
+    width: 240px;
+    margin-right: 1rem;
+`;
+const DeliveryBox = styled.div`
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+`;
+const DeliveryInnerBox = styled.div`
+    margin-right: 2rem;
+`;
+const DeliveryLabel = styled.label`
+    ::before {
+        content: "";
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 20px 20px;
+        width: 2rem;
+        height: 2rem;
+        padding: 0.5rem;
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9IiNDM0MyQ0MiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTEwIDBDNC40ODYgMCAwIDQuNDg2IDAgMTBzNC40ODYgMTAgMTAgMTAgMTAtNC40ODYgMTAtMTBTMTUuNTE0IDAgMTAgMG0wIDE4Yy00LjQxMSAwLTgtMy41ODktOC04czMuNTg5LTggOC04IDggMy41ODkgOCA4LTMuNTg5IDgtOCA4bTIuMjkzLTEwLjcwN0w5IDEwLjU4NiA3LjcwNyA5LjI5M2ExIDEgMCAxIDAtMS40MTQgMS40MTRsMiAyYS45OTcuOTk3IDAgMCAwIDEuNDE0IDBsNC00YTEgMSAwIDEgMC0xLjQxNC0xLjQxNCIvPgo8L3N2Zz4K);
+        border-radius: 50%;
+        box-sizing: border-box;
+    }
+    :hover::before {
+        background-color: rgba(30, 29, 41, 0.06);
+    }
+    input {
+        background: rgb(244, 244, 250);
+        height: 3rem;
+        padding: 0px 1rem;
+        display: none;
+        border: 1px solid rgb(195, 194, 204);
+        [type="checkbox"] {
+            box-sizing: border-box;
+        }
+    }
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+`;
+const Explanationleft = styled.div`
+    width: 10.5rem;
+    font-size: 18px;
+    padding-top: 18px;
+    span {
+        color: rgb(255, 80, 88);
+    }
+`;
+const ExplanationRight = styled.textarea`
+    padding: 1rem;
+    resize: none;
+    line-height: 1.35;
+    border: 1px solid rgb(195, 194, 204);
+    width: 100%;
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    direction: ltr;
+    text-align: left;
+    color: rgb(33, 33, 33);
+    letter-spacing: -0.5px;
+    outline: 0px;
+`;
+const NeedExplanationBox = styled.div`
+    position: absolute;
+    top: 0px;
+    padding: 1rem;
+    line-height: 16px;
+    color: rgb(155, 153, 169);
+    span {
+        display: inline-block;
+        margin-top: 8px;
+        font-size: 12px;
+    }
+`;
+const KakaoBox = styled.div`
+    display: flex;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    margin-top: 0.3rem;
+    height: 16px; 
+    span {
+        font-size: 1rem;
+        color: rgb(155,153,169);
+    }
+    span a {
+        color: rgb(155,153,169);
+        text-decoration: underline;
+        cursor: pointer;
+    }
+`;
+const ExplanationSize = styled.div`
+    text-align: right;
+`;
+const TagBox = styled.div`
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 3rem;
+    border: 1px solid rgb(195, 194, 204);
+    position: relative;
+`;
+const TagInnerBox = styled.div`
+    flex: 1 1 0%;
+    height: 100%;
+`;
+const InputTag = styled.div`
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 100%;
+    input {
+        padding: 0px 1rem;
+        width: 100%;
+        height: 100% !important;
+        border: 0px !important;
+        appearance: none;
+    }
+`;
+const TagCondition = styled.ul`
+    padding-top: 0.5rem;
+    padding-left: 0px;
+    line-height: 1.3;
+    color: rgb(136, 136, 136);
+    li::before {
+        content: "- ";
+        box-sizing: border-box;
+    }
+    li {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 0.25rem;
+    }
+    li > p {
+        line-height: 1.5;
+        margin: 0 0 0 0.5rem;
+    }
+`;
+const Amount = styled.div`
+    width: 10.5rem;
+    font-size: 18px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+`;
+const InputAmount = styled.input`
+    height: 3rem;
+    padding: 0px 1rem;
+    border: 1px solid rgb(195, 194, 204);
+    width: 240px;
+    margin-right: 1rem;
 `;
 export default AddProduct;
