@@ -8,6 +8,7 @@ function AddProduct(){
         <>
         <Container>
             <AddContainer>
+                <Section>
                 <BasicInfo>
                     <h2>기본정보</h2><span>*필수항목</span>
                 </BasicInfo>
@@ -317,6 +318,38 @@ function AddProduct(){
                     </RightBox>
                 </ProductSection>
                 </ProductInfo>
+                </Section>
+                <Section>
+                    <SaleContainer>
+                        <h2>
+                            빠른 판매
+                            <Saledescription>
+                                 <p>내 상품에 안전결제 배지가 표시돼요</p>
+                                 <a href="https://m.bunjang.co.kr/banner/pay?utm_source=pay-filter&utm_medium=product-register&utm_campaign=pay-master-seller-2109#seller" target="_blank">자세히</a>   
+                            </Saledescription>
+                        </h2>
+                    </SaleContainer>
+                    <SafePaymentContainer>
+                        <SafeInnerContainer>
+                            <ImageLeft>
+                                옵션
+                            </ImageLeft>
+                            <RightBox>
+                                <SafeCheckBox>
+                                    <SafeCheckLabel>
+                                        <input id="" type="checkbox"/>
+                                        <SafeText>
+                                            <span>안전결제 환영</span>
+                                            <svg width={60} height={24} viewBox="0 0 35 16" xmlns="http://www.w3.org/2000/svg" role="img">
+                                                <g></g>
+                                            </svg>
+                                        </SafeText>
+                                    </SafeCheckLabel>
+                                </SafeCheckBox>
+                            </RightBox>
+                        </SafeInnerContainer>
+                    </SafePaymentContainer>
+                </Section>
             </AddContainer>
         </Container>
         </>
@@ -728,5 +761,82 @@ const InputAmount = styled.input`
     border: 1px solid rgb(195, 194, 204);
     width: 240px;
     margin-right: 1rem;
+`;
+const Section = styled.section`
+    display: block;
+    margin-bottom: 3rem;
+`;
+const SaleContainer = styled.div`
+    h2 {
+        height: 100px;
+        font-size: 26px;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        border-bottom: 2px solid rgb(30,29,41);
+    }
+    letter-spacing: normal;
+    `;
+    // font-family: AppleSDFothic;
+const Saledescription = styled.div`
+    p {
+        font-size: 16px;
+        font-weight: normal;
+        color: rgb(30, 29, 41);
+        margin: 0 0;
+    }
+    a {
+        margin-left: 4px;
+        font-size: 16px;
+        text-decoration: underline;
+        color: rgb(30, 29, 41);
+    }
+    margin-left: 16px;
+    display: flex;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 6px;
+    font-size: 12px;
+    color: rgb(155, 153, 169);
+`;
+const SafePaymentContainer = styled.ul`
+    padding-top: 0.5rem;
+`;
+const SafeInnerContainer = styled.li`
+    :last-child {
+        border-bottom: 0px;
+    }
+    width: 100%;
+    display: flex;
+    padding: 2rem 0px;
+`;
+const SafeCheckBox = styled.div`
+    margin-right: 2rem;
+`;
+const SafeCheckLabel = styled.label`
+    ::before {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9IiNGRjUwNTgiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTEwIDBDNC40ODYgMCAwIDQuNDg2IDAgMTBzNC40ODYgMTAgMTAgMTAgMTAtNC40ODYgMTAtMTBTMTUuNTE0IDAgMTAgMG0yLjI5MyA3LjI5M0w5IDEwLjU4NiA3LjcwNyA5LjI5M2ExIDEgMCAxIDAtMS40MTQgMS40MTRsMiAyYS45OTcuOTk3IDAgMCAwIDEuNDE0IDBsNC00YTEgMSAwIDEgMC0xLjQxNC0xLjQxNCIvPgo8L3N2Zz4K)
+    }
+    :hover::before {
+        background-color: rgba(255,80,88,0.08);
+    }
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+`;
+const SafeText = styled.span`
+    display: flex;
+    height: 32px;
+    font-weight: bold;
+    span {
+        margin-top: 6.5px;
+    }
+    svg {
+        margin-left: 6px;
+        align-self: center;
+    }
 `;
 export default AddProduct;
