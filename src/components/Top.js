@@ -1,8 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import '../index.css';
+import LoginModal from './LoginModal';
+import { useNavigate } from 'react-router-dom';
+
 // 앱 다운로드 즐겨찾기 있는 상단 바
 function Top() {
+
+    let Navigate = useNavigate();
+
     return (
         <TopWrapper>
             <TopContainer>
@@ -29,7 +35,7 @@ function Top() {
                     </TopButton>
                 </TopMenu>
                 <TopMenu>
-                    <TopButton>로그인/회원가입</TopButton>
+                    <TopButton onClick={()=>{Navigate('/login')}}>로그인/회원가입</TopButton>
                     <TopA>내상점</TopA>
                 </TopMenu>
             </TopContainer>

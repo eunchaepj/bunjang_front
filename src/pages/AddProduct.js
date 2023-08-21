@@ -2,8 +2,6 @@ import styled from "styled-components"
 import React from "react";
 
 function AddProduct(){
-
-
     return(
         <>
         <Container>
@@ -58,8 +56,8 @@ function AddProduct(){
                     </LeftBox>
                     <RightBox>
                         <Inputbox>
-                            <input type="text" placeholder="상품 제목을 입력해주세요."/>
-                            <a href="https://help.bunjang.co.kr/faq/2/220">거래금지 품목</a>
+                            <input onClick={()=>{ }} type="text" placeholder="상품 제목을 입력해주세요."/>
+                            <a href="https://help.bunjang.co.kr/faq/2/220">거래금지 품목</a>         
                         </Inputbox>
                         <InputTextSize>
                             0/40
