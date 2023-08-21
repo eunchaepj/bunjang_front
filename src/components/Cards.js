@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { getProducts } from '../redux/modules/product';
 
 function Cards() {
     let navigate = useNavigate();
-    let [product] = useState({
-        img: 'https://mblogthumb-phinf.pstatic.net/20130303_124/ovcharka_no1_1362279507296igEt3_JPEG/1.jpg?type=w2',
-        itemName: '제인패커 유로피안 라일락 75ml 향수',
-        price: 101 + ',' + 600,
-        time: '시간',
-    });
-    // img링크, itemName, price, time
+    let dispatch = useDispatch();
+    let products = useSelector((state) => state.product.product);
+    // 리덕스에서 API에 있는 정보들 가져오기
+    useEffect(() => {
+        dispatch(getProducts());
+    }, [dispatch]);
+
     return (
         <>
             {/* repeat : 5열 각 200px으로 정렬하겠다 */}
@@ -22,25 +24,29 @@ function Cards() {
                     gap: '10px',
                 }}
             >
-                <Card>
-                    <CardInner
-                        onClick={() => {
-                            navigate('/detail', { state: product });
-                        }}
-                    >
-                        <CardHead>
-                            <img src={product.img} alt="product" />
-                            <Sth />
-                        </CardHead>
-                        <CardContents>
-                            <ItemName>{product.itemName}</ItemName>
-                            <ItemContentBottom>
-                                <Price>{product.price}</Price>
-                                <Time>{product.time}</Time>
-                            </ItemContentBottom>
-                        </CardContents>
-                    </CardInner>
-                </Card>
+                {products.map((product) => {
+                    return (
+                        <Card>
+                            <CardInner
+                                onClick={() => {
+                                    navigate('/detail', { state: product });
+                                }}
+                            >
+                                <CardHead>
+                                    <img src={product.product_image} alt="product" />
+                                    <Sth />
+                                </CardHead>
+                                <CardContents>
+                                    <ItemName>{product.name}</ItemName>
+                                    <ItemContentBottom>
+                                        <Price>{product.price}</Price>
+                                        <Time>{product.time}</Time>
+                                    </ItemContentBottom>
+                                </CardContents>
+                            </CardInner>
+                        </Card>
+                    );
+                })}
             </div>
         </>
     );
