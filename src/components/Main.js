@@ -1,11 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Cards from './Cards';
-import { useDispatch, useSelector } from 'react-redux';
 
 function Main() {
-    //let dispatch = useDispatch();
-    //let state = useSelector((state) => state);
     return (
         <>
             <Section>
