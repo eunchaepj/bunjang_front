@@ -29,11 +29,22 @@ function LoginModal(){
                                 <Naver/>
                                 네이버로 이용하기
                             </SnsBtn>
-                            <SnsBtn onClick={()=>{navigate("/signup")}}>
+                            <SignBtn onClick={()=>{navigate("/signup")}}>
                                 <Signup/>
-                                본인인증으로 이용하기    
-                            </SnsBtn>   
+                                회원가입 하러가기  
+                            </SignBtn>   
                         </BtnGroup>
+                        <HelpContainer>
+                            <HelpText>
+                                도움이 필요하면
+                                <a href="mailto:help@bunjang.co.kr">이메일</a>
+                                또는 고객센터
+                                <b>1670-2910</b>
+                                로 문의 부탁드립니다
+                                <br/>
+                                고객센터 운영시간: 09~18시 (점심시간 12~13시, 주말/공휴일 제외)
+                            </HelpText>
+                        </HelpContainer>
                     </div>
                 </ModalContainer>
             </Background>
@@ -49,6 +60,8 @@ const Background = styled.div`
     left: 0px;
     background: rgba(0, 0, 0, 0.6);
     z-index: 1000;
+    -webkit-box-align: center;
+    align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
     display: flex;
@@ -81,6 +94,7 @@ const MainText = styled.div`
     font-weight: bold;
 `;
 const SubText = styled.div`
+    font-size: 14px;
     line-height: 1.5;
     margin-bottom: 35px;
     text-align: center;
@@ -96,6 +110,17 @@ const SnsBtn = styled.div`
     text-align: center;
     border-radius: 4px;
     margin-bottom: 12px;
+    position: relative;
+    font-size: 14px;
+    line-height: 37px;
+`;
+const SignBtn = styled.div`
+    width: 100%;
+    height: 38px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 7px 0px;
+    background: rgb(255, 255, 255);
+    text-align: center;
+    border-radius: 4px;
     position: relative;
     font-size: 14px;
     line-height: 37px;
@@ -140,5 +165,25 @@ const Signup = styled.button`
     background-size: cover;
     background-repeat: no-repeat;
 `;
-
+const HelpContainer = styled.div`
+    padding: 3.5rem 2rem 1.5rem;
+    font-size: 12px;
+    line-height: 1.5;
+    color: rgb(153, 153, 153);
+    a { 
+        font-weight: normal;
+        text-decoration: underline;
+        color: rgb(102, 102, 102);
+    }
+    b {
+        font-weight: normal;
+        color: rgb(102, 102, 102);
+    }
+`;
+const HelpText = styled.p`
+    margin 0px;
+    width: 100%;
+    border-top: 1px solid rgb(229, 229, 229);
+    padding-top: 1rem;
+`;
 export default LoginModal;

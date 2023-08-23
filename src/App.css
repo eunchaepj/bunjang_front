@@ -2,6 +2,16 @@
     box-sizing: border-box;
 }
 
+/* 회원가입 버튼 */
+.btnDisabled {
+    background-color: rgb(216, 12, 24);
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+.btnActive {
+    background-color: rgb(216, 12, 24);
+ }
+
 h1, h2, h3, h4, h5, h6 {
     font-size: 14px;
     font-weight: 400;
