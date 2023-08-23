@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import pay from '../pic/pay.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getProducts } from '../redux/modules/product';
@@ -12,6 +13,7 @@ function Detail() {
     useEffect(() => {
         dispatch(getProducts());
     }, [dispatch]);
+
     const { state } = useLocation();
     return (
         <>
@@ -40,6 +42,143 @@ function Detail() {
                                 </CategorySelectorGroup>
                             </CategoryNavigation>
                         </CategoryNavigationWrapper>
+                        <ProductContentWrapper>
+                            <ProductTop>
+                                <ProductImageWrapper>
+                                    <ProductImageBox>
+                                        <ProductImage>
+                                            <img src={state.product_image} alt="그림자리" />
+                                        </ProductImage>
+                                        <NextButton direction="next">
+                                            <img
+                                                src="https://m.bunjang.co.kr/pc-static/resource/086e98d9e0b1bc50a763.png"
+                                                width="12"
+                                                height="22"
+                                                alt="다음 페이지 이동 버튼 아이콘"
+                                            />
+                                        </NextButton>
+                                        <LookButton>
+                                            <img
+                                                src="https://m.bunjang.co.kr/pc-static/resource/7605d7c41112c056d45b.png"
+                                                width="16"
+                                                height="16"
+                                                alt="확대 버튼 아이콘"
+                                            />
+                                            확대
+                                        </LookButton>
+                                        <DotBox>
+                                            <FirstDot disabled />
+                                            <OtherDot />
+                                        </DotBox>
+                                    </ProductImageBox>
+                                </ProductImageWrapper>
+                                <ProductSummaryWapper>
+                                    <Wapper>
+                                        <Main>
+                                            <Basic>
+                                                <Name>{state.name}</Name>
+                                                <PriceWapper>
+                                                    <Price>
+                                                        {state.price}
+                                                        <span>원</span>
+                                                    </Price>
+                                                    <TooltipArea>
+                                                        <img
+                                                            src={pay}
+                                                            alt="번개페이 가능"
+                                                            class="ProductSummarystyle__IconBadge-sc-oxz0oy-7 gzHITU"
+                                                        />
+                                                    </TooltipArea>
+                                                </PriceWapper>
+                                            </Basic>
+                                            <ProductDetail>
+                                                <StatusWrapper>
+                                                    <StatusGroup>
+                                                        <Status>
+                                                            <img
+                                                                src="https://m.bunjang.co.kr/pc-static/resource/e92ccca1b575780c7cb4.png"
+                                                                width="16"
+                                                                height="16"
+                                                                alt="상품 상태 아이콘"
+                                                            />
+                                                            <StatusValue>151</StatusValue>
+                                                        </Status>
+                                                        <Status>
+                                                            <img
+                                                                src="https://m.bunjang.co.kr/pc-static/resource/95ccf1c901ac09d733ec.png"
+                                                                width="21"
+                                                                height="13"
+                                                                alt="상품 상태 아이콘"
+                                                            />
+                                                            325
+                                                        </Status>
+                                                        <Status>
+                                                            <img
+                                                                src="https://m.bunjang.co.kr/pc-static/resource/f5ac734eb33eb0faa3b4.png"
+                                                                width="16"
+                                                                height="16"
+                                                                alt="상품 상태 아이콘"
+                                                            />
+                                                            15시간 전
+                                                        </Status>
+                                                    </StatusGroup>
+                                                </StatusWrapper>
+                                                <DetailInfo>
+                                                    <Row>
+                                                        <Label>상품상태</Label>
+                                                        <Value>중고</Value>
+                                                    </Row>
+                                                    <Row>
+                                                        <Label>교환여부</Label>
+                                                        <Value>교환불가능</Value>
+                                                    </Row>
+                                                    <Row>
+                                                        <Label>배송비</Label>
+                                                        <Value>배송비 별도</Value>
+                                                    </Row>
+                                                    <Row>
+                                                        <Label>거래지역</Label>
+                                                        <Value>
+                                                            <img
+                                                                src="https://m.bunjang.co.kr/pc-static/resource/c5e781f4a76a029355bc.png"
+                                                                width="12"
+                                                                height="15"
+                                                                alt="지역 아이콘"
+                                                            />
+                                                            어쩌고 저쩌고
+                                                        </Value>
+                                                    </Row>
+                                                </DetailInfo>
+                                                <Buttons>
+                                                    <FavoriteButtonWapper>
+                                                        <FavoriteButton>
+                                                            <img
+                                                                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiNGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgZD0iTTcuMDA1IDEuMDQ1aC4yMzNjLjI4LjIyOC41MzcuNDkuNzYyLjc3Ny4yMjUtLjI4OC40ODEtLjU0OS43NjItLjc3N2guMjMzYTYuMTYgNi4xNiAwIDAgMC0uMDktLjExM0M5LjY4NC4zNDQgMTAuNjI4IDAgMTEuNiAwIDE0LjA2NCAwIDE2IDIuMTEgMTYgNC43OTZjMCAzLjI5Ni0yLjcyIDUuOTgxLTYuODQgMTAuMDYyTDggMTZsLTEuMTYtMS4xNTFDMi43MiAxMC43NzcgMCA4LjA5MiAwIDQuNzk2IDAgMi4xMSAxLjkzNiAwIDQuNCAwYy45NzIgMCAxLjkxNi4zNDQgMi42OTUuOTMyYTYuMTYgNi4xNiAwIDAgMC0uMDkuMTEzeiIvPgo8L3N2Zz4K"
+                                                                width="16"
+                                                                height="16"
+                                                                alt="찜 아이콘"
+                                                            />
+                                                            <span>찜</span>
+                                                            <span>28</span>
+                                                        </FavoriteButton>
+                                                    </FavoriteButtonWapper>
+                                                    <ContactButton>
+                                                        <img
+                                                            src="https://m.bunjang.co.kr/pc-static/resource/ea94c452c6cc8127abc1.png"
+                                                            width="20"
+                                                            height="19"
+                                                            alt="번개톡 버튼 아이콘"
+                                                        />
+                                                        번개톡
+                                                    </ContactButton>
+                                                    <BuyButton>바로구매</BuyButton>
+                                                </Buttons>
+                                            </ProductDetail>
+                                        </Main>
+                                    </Wapper>
+                                </ProductSummaryWapper>
+                            </ProductTop>
+                        </ProductContentWrapper>
                     </ProductPage>
                 </ProductPageTop>
             </div>
@@ -256,7 +395,7 @@ const OtherDot = styled.button`
     border-radius: 50%;
     margin-right: 10px;
 `;
-const WapperContainor = styled.div`
+const ProductSummaryWapper = styled.div`
     -webkit-box-flex: 1;
     flex-grow: 1;
 `;
@@ -301,6 +440,10 @@ const TooltipArea = styled.div`
     position: relative;
     display: inline-block;
     cursor: pointer;
+    img {
+        display: inline-block;
+        height: 28px;
+    }
 `;
 const IconBadge = styled.img`
     display: inline-block;
