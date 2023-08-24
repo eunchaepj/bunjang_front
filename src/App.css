@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+/* 판매하기 yellowBox */
+.Solidyellow {
+    border-color: rgb(245, 126, 0) !important;
+}
+
 /* 회원가입 버튼 */
 .btnDisabled {
     background-color: rgb(216, 12, 24);

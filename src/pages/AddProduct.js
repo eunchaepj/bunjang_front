@@ -1,7 +1,30 @@
 import styled from "styled-components"
 import React from "react";
+import { useState } from "react";
+import { useRef } from "react";
+import "../App.css"
 
 function AddProduct(){
+
+    const [image, setImage] = useState("");
+    const [imageList, setImageList] = useState("");
+    const [imgCount, setImgCount] = useState(0);
+    const [title, setTitle] = useState("두글");
+    const [isTrue, setIsTrue] = useState(false);
+    
+    const onChangeImg = (e)=>{
+        console.log(e.target.value)
+        var reader = new FileReader();
+        reader.onload = (e)=>{
+            setImage(e.target.result);
+            console.log(image)
+            setImageList([...imageList, e.target.result]) 
+            setImgCount(imgCount+1)
+        }
+        reader.readAsDataURL(e.target.files[0])
+    }
+    const onChangeTitle = (e)=>{ setTitle(e.target.value) }
+
     return(
         <>
         <Container>
@@ -13,7 +36,7 @@ function AddProduct(){
                 <ProductInfo> 
                 <ProductSection>
                     <ImageLeft>
-                        상품이미지<span className="star">*</span><span className="num" style={{fontSize:"15px"}}>(0/12)</span>
+                        상품이미지<span className="star">*</span><span className="num" style={{fontSize:"15px"}}>({imgCount}/12)</span>
                     </ImageLeft>
                     <RightBox>
                             <Ul>
@@ -29,8 +52,20 @@ function AddProduct(){
                                     // onChange={onChangeImg}
                                     /> */}                                    
                                     이미지 등록
-                                    <input type="file" accept="image/jpg, image/jpeg, image/png" multiple/>
+                                    <input type="file" accept="image/jpg, image/jpeg, image/png" onChange={onChangeImg}/>
                                 </Imageupload>
+                                    {
+                                        imageList.length > 0 ?
+                                            imageList.map((a, i)=>{
+                                                console.log(i)
+                                                return (
+                                                    <ImgList>
+                                                        <img src={imageList[i]} key={i} width={200} height={200}/>
+                                                    </ImgList>  
+                                                )
+                                            })
+                                        : null
+                                    }
                             </Ul>
                         <ImageText>
                             <b>* 상품 이미지는 640x640에 최적화 되어 있습니다.</b>
@@ -55,16 +90,17 @@ function AddProduct(){
                         <span>*</span>
                     </LeftBox>
                     <RightBox>
-                        <Inputbox>
-                            <input onClick={()=>{ }} type="text" placeholder="상품 제목을 입력해주세요."/>
-                            <a href="https://help.bunjang.co.kr/faq/2/220">거래금지 품목</a>         
+                        <Inputbox className="Solidyellow">
+                            <input onChange={onChangeTitle} type="text" placeholder="상품 제목을 입력해주세요." className={title.length < 2 ? "Solidyellow" : null}/>
+                            <a href="https://help.bunjang.co.kr/faq/2/220">거래금지 품목</a>       
                         </Inputbox>
+                        { title.length < 2 ? <YellowBox>상품명을 2자 이상 입력해주세요</YellowBox> : null }
                         <InputTextSize>
-                            0/40
+                            {title.length}/40
                         </InputTextSize>
                     </RightBox>
                 </ProductSection>
-                <ProductSection>
+                {/* <ProductSection>
                     <CategoryLeft>
                         카테고리
                         <span>*</span>
@@ -175,7 +211,7 @@ function AddProduct(){
                             </SelectCategoryText>
                         </SelectCategory>
                     </RightBox>
-                </ProductSection>
+                </ProductSection> */}
                 <ProductSection>
                         <LeftBox>
                             거래지역
@@ -262,7 +298,7 @@ function AddProduct(){
                         <span>*</span>
                     </Explanationleft>
                     <RightBox>
-                        <ExplanationRight rows={6} value={""}></ExplanationRight>
+                        <ExplanationRight type="text" rows={6}></ExplanationRight>
                         <NeedExplanationBox>
                             여러 장의 상품 사진과 구입 연도, 브랜드, 사용감, 하자 유무 등 구매자에게 필요한 정보를 꼭 포함해 주세요. (10자 이상)
                             <br/>
@@ -446,6 +482,23 @@ const Imageupload = styled.li`
         cursor: pointer;
         font-size: 0px;
     }
+  
+`;
+const ImgList = styled.li`
+    width: 202px;
+    height: 202px;
+    border: 1px solid rgb(230, 229, 239);
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    list-style-type: none;
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    img {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
 `;
 const ImageText = styled.div`
     margin-top: 1.5rem; 
@@ -476,12 +529,34 @@ const Inputbox = styled.div`
         border: 1px solid rgb(195,194,204);
         width: 100%;
     }
+    input:hover {
+            border: 1px solid rgb(0,0,0);
+        }
     a {
         position: absolute;
         right: 1rem;
         font-size: 1rem;
         color: rgb(155, 153, 169);
         text-decoration: underline;
+    }
+`;
+const YellowBox = styled.div`
+    color: rgb(245, 126, 0);
+    font-size: 14px;
+    margin-top: 0.5rem;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    ::before {
+        content: "";
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 1rem;
+        height: 1rem;
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxwYXRoIGZpbGw9IiNGNTdFMDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTEuNiA4YzAtMS40NzcuNTA4LTIuODM0IDEuMzUtMy45MThsOC45NjggOC45NjhBNi4zNjMgNi4zNjMgMCAwIDEgOCAxNC40IDYuNDA3IDYuNDA3IDAgMCAxIDEuNiA4bTExLjQ1IDMuOTE4TDQuMDgyIDIuOTVBNi4zNjMgNi4zNjMgMCAwIDEgOCAxLjZjMy41MjkgMCA2LjQgMi44NzEgNi40IDYuNCAwIDEuNDItLjQ3NiAyLjc5OS0xLjM1IDMuOTE4TTAgOGMwIDQuNDExIDMuNTg5IDggOCA4czgtMy41ODkgOC04LTMuNTg5LTgtOC04LTggMy41ODktOCA4Ii8+Cjwvc3ZnPgo=);
+        margin-right: 0.5rem;);
+        margin-right: 0.5rem;
     }
 `;
 const InputTextSize = styled.div`
@@ -666,6 +741,9 @@ const ExplanationRight = styled.textarea`
     color: rgb(33, 33, 33);
     letter-spacing: -0.5px;
     outline: 0px;
+    :focus {
+        border-color: rgb(30, 29, 41)
+    }
 `;
 const NeedExplanationBox = styled.div`
     position: absolute;
